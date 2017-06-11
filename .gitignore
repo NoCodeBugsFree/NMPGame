@@ -10,3 +10,5 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+/Build/WindowsNoEditor/FileOpenOrder
+/.vs/NMPGame/v15/ipch/AutoPCH/NMPGAME-4a79304f/NMPGAMECHARACTER-3ad96704
