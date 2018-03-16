@@ -1,8 +1,6 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
-#include "NMPGame.h"
-#include "Kismet/HeadMountedDisplayFunctionLibrary.h"
 #include "NMPGameCharacter.h"
+#include "NMPGame.h"
 #include "Pickup.h"
 #include "BatteryPickup.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -94,7 +92,7 @@ void ANMPGameCharacter::UpdatePower(float DeltaPower)
 
 void ANMPGameCharacter::OnRep_CurrentPower()
 {
-	// Disable original
+	// Disable original BlueprintImplementableEvent
 	// PowerChangeEffect();
 
 	// cpp final version
@@ -169,9 +167,6 @@ void ANMPGameCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerI
 	PlayerInputComponent->BindTouch(IE_Pressed, this, &ANMPGameCharacter::TouchStarted);
 	PlayerInputComponent->BindTouch(IE_Released, this, &ANMPGameCharacter::TouchStopped);
 
-	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ANMPGameCharacter::OnResetVR);
-
 	// collecting pickups
 	PlayerInputComponent->BindAction("Collect", IE_Pressed, this, &ANMPGameCharacter::CollectPickups);
 }
@@ -224,12 +219,6 @@ void ANMPGameCharacter::ServerCollectPickups_Implementation()
 		}
 	}
 }
-
-void ANMPGameCharacter::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
 void ANMPGameCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
 		Jump();

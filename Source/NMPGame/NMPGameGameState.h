@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "GameFramework/GameStateBase.h"
+#include "GameFramework/GameState.h"
 #include "NMPGameGameState.generated.h"
 
 /**
@@ -46,15 +46,6 @@ public:
 private:
 
 	UPROPERTY(ReplicatedUsing = OnRep_CurrentState)
-	EBatteryPlayState CurrentState = EBatteryPlayState::EUnknown;
-	
-	
-	
-
-
-
-
-	
-	
+	EBatteryPlayState CurrentState = EBatteryPlayState::EUnknown; 
 	
 };

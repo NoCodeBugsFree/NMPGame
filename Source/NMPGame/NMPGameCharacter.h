@@ -55,9 +55,6 @@ public:
 	void MulticastOnPlayerDeath_Implementation();
 	 
 protected:
-	
-	/** Resets HMD orientation in VR. */
-	void OnResetVR();
 
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);

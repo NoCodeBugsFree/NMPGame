@@ -5,21 +5,10 @@ using System.Collections.Generic;
 
 public class NMPGameEditorTarget : TargetRules
 {
-	public NMPGameEditorTarget(TargetInfo Target)
-	{
+	public NMPGameEditorTarget(TargetInfo Target) : base(Target)
+    {
 		Type = TargetType.Editor;
-	}
 
-	//
-	// TargetRules interface.
-	//
-
-	public override void SetupBinaries(
-		TargetInfo Target,
-		ref List<UEBuildBinaryConfiguration> OutBuildBinaryConfigurations,
-		ref List<string> OutExtraModuleNames
-		)
-	{
-		OutExtraModuleNames.Add("NMPGame");
-	}
+        ExtraModuleNames.AddRange(new string[] { "NMPGame" });
+    }
 }

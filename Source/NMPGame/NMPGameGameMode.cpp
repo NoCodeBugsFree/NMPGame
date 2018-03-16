@@ -1,7 +1,6 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
-
-#include "NMPGame.h"
 #include "NMPGameGameMode.h"
+#include "NMPGame.h"
 #include "NMPGameCharacter.h"
 #include "NMPGameGameState.h"
 #include "SpawnVolume.h"
@@ -64,16 +63,12 @@ void ANMPGameGameMode::SetPowerToWin(UWorld* const World, ANMPGameGameState* MyG
 
 void ANMPGameGameMode::InitializeSpawnVolumes(UWorld* const World)
 {
-	TArray<AActor*> FoundActors;
-	UGameplayStatics::GetAllActorsOfClass(World, ASpawnVolume::StaticClass(), FoundActors);
-
-	for (auto Actor : FoundActors)
+	for (TActorIterator<ASpawnVolume> Iter(GetWorld()); Iter; ++Iter)
 	{
-		ASpawnVolume* SpawnVolumeActor = Cast<ASpawnVolume>(Actor);
-		if (SpawnVolumeActor)
+		if ((*Iter))
 		{
-			SpawnVolumeActors.AddUnique(SpawnVolumeActor);
-		}
+			SpawnVolumeActors.AddUnique(*Iter);
+		}	
 	}
 }
 
@@ -107,7 +102,7 @@ void ANMPGameGameMode::HandleDrainForThisCharacter(ANMPGameCharacter* BatteryCha
 		MyGameState->WinningPlayerName = BatteryCharacter->GetName();
 		HandleNewState(EBatteryPlayState::EWon);
 	}
-	// UpdatePower
+	// Update Power
 	else if (BatteryCharacter->GetCurrentPower() > 0)
 	{
 		BatteryCharacter->UpdatePower(-PowerDrainDelay * DecayRate * (BatteryCharacter->GetInitialPower()));

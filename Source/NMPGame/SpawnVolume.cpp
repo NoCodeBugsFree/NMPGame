@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "NMPGame.h"
 #include "SpawnVolume.h"
+#include "NMPGame.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Pickup.h"
 
@@ -67,7 +66,7 @@ void ASpawnVolume::SpawnPickup()
 			FActorSpawnParameters SpawnParams;
 			SpawnParams.Owner = this;
 			SpawnParams.Instigator = Instigator;
-		
+			
 			FVector SpawnLocation = GetRandomPointInVolume();
 			FRotator SpawnRotation = UKismetMathLibrary::RandomRotator();
 			APickup* Spawned = World->SpawnActor<APickup>(WhatToSpawn, SpawnLocation, SpawnRotation, SpawnParams);

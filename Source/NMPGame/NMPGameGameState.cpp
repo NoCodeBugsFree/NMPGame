@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "NMPGame.h"
 #include "NMPGameGameState.h"
+#include "NMPGame.h"
+
 
 // [Server]
 void ANMPGameGameState::SetCurrentState(EBatteryPlayState NewState)

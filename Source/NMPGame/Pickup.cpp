@@ -1,7 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "NMPGame.h"
 #include "Pickup.h"
+#include "NMPGame.h"
 //#include "Net/UnrealNetwork.h"
 
 APickup::APickup()

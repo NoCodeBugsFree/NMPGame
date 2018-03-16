@@ -21,7 +21,7 @@ public:
 
 	virtual void Tick(float DeltaSeconds) override;
 
-	/** Uses in Tick when Tick if enabled */
+	/** Uses in Tick when Tick is enabled */
  	UFUNCTION()
  	void AttachEmmiterToCharacter();
  	
@@ -48,7 +48,7 @@ protected:
 
 	/** Lightning Emitter Template  */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AAA", meta = (AllowPrivateAccess = "true"))
-	UParticleSystem* EmitterTemplate;
+	class UParticleSystem* EmitterTemplate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "AAA", meta = (AllowPrivateAccess = "true"))
 	float ChangeBoneNameDelayMin = 0.2f;
@@ -80,6 +80,6 @@ private:
 
 	/** Emitter Reference  */
 	UPROPERTY()
-	UParticleSystemComponent* Emitter;
+	class UParticleSystemComponent* Emitter;
 	
 };

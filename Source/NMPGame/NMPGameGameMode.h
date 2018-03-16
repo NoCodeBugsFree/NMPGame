@@ -1,6 +1,6 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 #pragma once
-#include "GameFramework/GameModeBase.h"
+#include "GameFramework/GameMode.h"
 #include "NMPGameGameState.h"
 #include "NMPGameGameMode.generated.h"
 
@@ -17,7 +17,6 @@ public:
 
 	void SetPowerToWin(UWorld* const World, ANMPGameGameState* MyGameState);
 	
-
 	UFUNCTION(BlueprintPure, Category = "AAA")
 	float GetDecayRate() const { return DecayRate; }
 

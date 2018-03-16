@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
-
-#include "NMPGame.h"
 #include "BatteryPickup.h"
+#include "NMPGame.h"
+
 
 ABatteryPickup::ABatteryPickup()
 {
